@@ -10,7 +10,7 @@
 %global __provides_exclude ^lib.*
 # Bundled libs doesn't need to show up as a requirement either, especially
 # since nothing provides them now
-%global __requires_exclude ^lib(hunspell|lgpllibs|moz.*|nss3|nssutil3|plc4|plds4|smime3|ssl3|xul)\\.so.*
+%global __requires_exclude ^lib(hunspell|lgpllibs|moz.*|nspr4|nss3|nssutil3|plc4|plds4|smime3|ssl3|xul)\\.so.*
 
 Name:           basilisk
 Summary:        An independent browser derived from Firefox/Mozilla community code.
@@ -41,7 +41,7 @@ BuildRequires:	pkgconfig(cairo)
 BuildRequires:	pkgconfig(pixman-1)
 BuildRequires:	pkgconfig(libjpeg)
 BuildRequires:	pkgconfig(zlib)
-BuildRequires:	pkgconfig(nspr)
+#BuildRequires:	pkgconfig(nspr)
 BuildRequires:	nasm
 BuildRequires:  yasm
 BuildRequires:  make
@@ -151,8 +151,8 @@ ac_add_options --enable-system-pixman
 ac_add_options --with-system-jpeg
 ac_add_options --with-system-zlib
 # We should REALLY use system nspr, but the build system is too broken
-ac_add_options --with-nspr-cflags="$(pkg-config --cflags nspr)"
-ac_add_options --with-nspr-libs="$(pkg-config --libs nspr)"
+#ac_add_options --with-nspr-cflags="$(pkg-config --cflags nspr)"
+#ac_add_options --with-nspr-libs="$(pkg-config --libs nspr)"
 EOF
 ./mach clobber
 
